@@ -29,18 +29,18 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		System.out.print("Hola mundo");
 		loadLogin();
 	}
 	
 	public void loadMenu() {
 		try {
+			login.close();
 			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/PrincipalMenu.fxml"));
 			AnchorPane root=(AnchorPane)loader.load();
 			Scene scene= new Scene(root);
 			PrincipalMenuController controlador = loader.getController();
 			controlador.setMain(this);
-			login.close();
+			
 			menu.setScene(scene);
 			menu.show();
 			
@@ -163,7 +163,6 @@ public class Main extends Application {
 
 
 	public static void main(String[] args) {
-		System.out.print("Hola mundo desde el main");
 		launch(args);
 	}
 }

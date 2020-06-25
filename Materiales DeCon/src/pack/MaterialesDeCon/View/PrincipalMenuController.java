@@ -1,14 +1,21 @@
 package pack.MaterialesDeCon.View;
 
 
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 import pack.MaterialesDeCon.Main;
 
-public class PrincipalMenuController {
+public class PrincipalMenuController implements Initializable{
 	Main main;
 	@FXML
     private JFXButton productos;
@@ -128,5 +135,24 @@ public class PrincipalMenuController {
 
 	public void setMain(Main main) {
 		this.main= main;
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		TextInputDialog dialog = new TextInputDialog("Cantidad de Efectivo en caja");
+		dialog.setTitle("Espere");
+		dialog.setHeaderText("Por favor introduzca la cantidad de dinero en caja");
+		dialog.setContentText("Cantidad:");
+
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		if (result.isPresent()){
+		    System.out.println("Cantidad de dinero " + result.get());
+		    cantidadInicial = Float.parseFloat(result.get());
+		}
+
+//		// The Java 8 way to get the response value (with lambda expression).
+//		result.ifPresent(name -> System.out.println("Your name: " + name));
 	}
 }
