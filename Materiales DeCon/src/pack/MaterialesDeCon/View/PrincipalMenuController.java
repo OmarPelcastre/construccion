@@ -1,6 +1,5 @@
 package pack.MaterialesDeCon.View;
 
-import javax.swing.JOptionPane;
 
 import com.jfoenix.controls.JFXButton;
 
@@ -52,7 +51,8 @@ public class PrincipalMenuController {
     private JFXButton regSuppiler;
    
  
-    static float cantidadInicial= Float.parseFloat(JOptionPane.showInputDialog(null, "Inserte el ingreso del dia: "));
+    //static float cantidadInicial= Float.parseFloat(JOptionPane.showInputDialog(null, "Inserte el ingreso del dia: "));
+	static float cantidadInicial = 0;
 	
 	public void cagarMenuUsuario(ActionEvent event) {
 		verficarBotones();

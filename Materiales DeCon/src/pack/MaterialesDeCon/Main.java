@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import pack.MaterialesDeCon.Model.CorteCaja;
 import pack.MaterialesDeCon.View.CorteCajaController;
 import pack.MaterialesDeCon.View.ListaProductosController;
 import pack.MaterialesDeCon.View.LoginController;
@@ -30,8 +29,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		//loadLogin();
-		loadMenu();
+		System.out.print("Hola mundo");
+		loadLogin();
 	}
 	
 	public void loadMenu() {
@@ -41,9 +40,9 @@ public class Main extends Application {
 			Scene scene= new Scene(root);
 			PrincipalMenuController controlador = loader.getController();
 			controlador.setMain(this);
+			login.close();
 			menu.setScene(scene);
 			menu.show();
-			login.close();
 			
 			
 		} catch  (IOException e) {
@@ -164,6 +163,7 @@ public class Main extends Application {
 
 
 	public static void main(String[] args) {
+		System.out.print("Hola mundo desde el main");
 		launch(args);
 	}
 }

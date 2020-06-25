@@ -20,6 +20,7 @@ public class LoginController {
 	
 	@FXML
 	void cagarMenu(ActionEvent event) {
+		System.out.println("Login");
 		main.loadMenu();
 	}
 	
