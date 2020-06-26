@@ -10,8 +10,8 @@ import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pack.MaterialesDeCon.Main;
 
@@ -56,6 +56,9 @@ public class PrincipalMenuController implements Initializable{
     private JFXButton seeSuppiler;
     @FXML
     private JFXButton regSuppiler;
+    
+    @FXML
+    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane;
    
  
     //static float cantidadInicial= Float.parseFloat(JOptionPane.showInputDialog(null, "Inserte el ingreso del dia: "));
@@ -70,24 +73,17 @@ public class PrincipalMenuController implements Initializable{
 	public void cagarProductos(ActionEvent event) {
 		verficarBotones();
 		registroProducto.setVisible(true);
-		acero.setVisible(true);
-		madera.setVisible(true);
-		azulejo.setVisible(true);
-		cemento.setVisible(true);
-		pintura.setVisible(true);
-		lamina.setVisible(true);
+		materialesPane.setVisible(true);
 	}
 	
 	public void cagarCaja(ActionEvent event) {
 		verficarBotones();
-		compra.setVisible(true);
-		caja.setVisible(true);
+		ventaPane.setVisible(true);
 	}
 	
 	public void cagarProveedores(ActionEvent event) {
 		verficarBotones();
-		regSuppiler.setVisible(true);
-		seeSuppiler.setVisible(true);
+		provedoresPane.setVisible(true);
 	}
 	
 	@FXML
@@ -114,19 +110,9 @@ public class PrincipalMenuController implements Initializable{
 	
 	
 	public void verficarBotones() {
-		regisUser.setVisible(false);
-		infoUser.setVisible(false);
-		acero.setVisible(false);
-		madera.setVisible(false);
-		azulejo.setVisible(false);
-		cemento.setVisible(false);
-		pintura.setVisible(false);
-		lamina.setVisible(false);
-		registroProducto.setVisible(false);
-		seeSuppiler.setVisible(false);
-		regSuppiler.setVisible(false);
-		caja.setVisible(false);
-		compra.setVisible(false);
+		provedoresPane.setVisible(false);
+		ventaPane.setVisible(true);
+		materialesPane.setVisible(true);
 	}
 	
 	public Float ingresoInicial() {
@@ -136,6 +122,8 @@ public class PrincipalMenuController implements Initializable{
 	public void setMain(Main main) {
 		this.main= main;
 	}
+	
+
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -154,5 +142,16 @@ public class PrincipalMenuController implements Initializable{
 
 //		// The Java 8 way to get the response value (with lambda expression).
 //		result.ifPresent(name -> System.out.println("Your name: " + name));
+		
+		acero.setVisible(true);
+		madera.setVisible(true);
+		azulejo.setVisible(true);
+		cemento.setVisible(true);
+		pintura.setVisible(true);
+		lamina.setVisible(true);
+		compra.setVisible(true);
+		caja.setVisible(true);
+		regSuppiler.setVisible(true);
+		seeSuppiler.setVisible(true);
 	}
 }
