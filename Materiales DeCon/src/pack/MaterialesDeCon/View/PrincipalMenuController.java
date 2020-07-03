@@ -65,24 +65,23 @@ public class PrincipalMenuController implements Initializable{
 	static float cantidadInicial = 0;
 	
 	public void cagarMenuUsuario(ActionEvent event) {
-		verficarBotones();
-		regisUser.setVisible(true);
-		infoUser.setVisible(true);
+		verificarBotones();
+		userPane.setVisible(true);
 	}
 	
 	public void cagarProductos(ActionEvent event) {
-		verficarBotones();
+		verificarBotones();
 		registroProducto.setVisible(true);
 		materialesPane.setVisible(true);
 	}
 	
 	public void cagarCaja(ActionEvent event) {
-		verficarBotones();
+		verificarBotones();
 		ventaPane.setVisible(true);
 	}
 	
 	public void cagarProveedores(ActionEvent event) {
-		verficarBotones();
+		verificarBotones();
 		provedoresPane.setVisible(true);
 	}
 	
@@ -109,10 +108,11 @@ public class PrincipalMenuController implements Initializable{
 	}
 	
 	
-	public void verficarBotones() {
+	public void verificarBotones() {
 		provedoresPane.setVisible(false);
-		ventaPane.setVisible(true);
-		materialesPane.setVisible(true);
+		ventaPane.setVisible(false);
+		materialesPane.setVisible(false);
+		userPane.setVisible(false);
 	}
 	
 	public Float ingresoInicial() {
@@ -133,16 +133,13 @@ public class PrincipalMenuController implements Initializable{
 		dialog.setHeaderText("Por favor introduzca la cantidad de dinero en caja");
 		dialog.setContentText("Cantidad:");
 
-		// Traditional way to get the response value.
 		Optional<String> result = dialog.showAndWait();
 		if (result.isPresent()){
 		    System.out.println("Cantidad de dinero " + result.get());
 		    cantidadInicial = Float.parseFloat(result.get());
 		}
 
-//		// The Java 8 way to get the response value (with lambda expression).
-//		result.ifPresent(name -> System.out.println("Your name: " + name));
-		
+		verificarBotones();
 		acero.setVisible(true);
 		madera.setVisible(true);
 		azulejo.setVisible(true);
@@ -153,5 +150,7 @@ public class PrincipalMenuController implements Initializable{
 		caja.setVisible(true);
 		regSuppiler.setVisible(true);
 		seeSuppiler.setVisible(true);
+		regisUser.setVisible(true);
+		infoUser.setVisible(true);
 	}
 }
