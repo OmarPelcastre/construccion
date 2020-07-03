@@ -58,7 +58,7 @@ public class PrincipalMenuController implements Initializable{
     private JFXButton regSuppiler;
     
     @FXML
-    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane;
+    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane;
    
  
     //static float cantidadInicial= Float.parseFloat(JOptionPane.showInputDialog(null, "Inserte el ingreso del dia: "));
@@ -113,6 +113,8 @@ public class PrincipalMenuController implements Initializable{
 		ventaPane.setVisible(false);
 		materialesPane.setVisible(false);
 		userPane.setVisible(false);
+		showUserInfoPane.setVisible(false);
+		
 	}
 	
 	public Float ingresoInicial() {
@@ -123,7 +125,13 @@ public class PrincipalMenuController implements Initializable{
 		this.main= main;
 	}
 	
-
+	@FXML
+	public void showUserInfo() {
+		verificarBotones();
+		showUserInfoPane.setVisible(true);
+	}
+	
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

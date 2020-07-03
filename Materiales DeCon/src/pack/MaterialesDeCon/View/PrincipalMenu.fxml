@@ -72,7 +72,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" prefHeight="64.0" prefWidth="226.0" ripplerFill="#770ad7" text="Inventario">
+                        <JFXButton buttonType="RAISED" onAction="#cagarListaMateriales" prefHeight="64.0" prefWidth="226.0" ripplerFill="#770ad7" text="Inventario">
                            <font>
                               <Font name="Tahoma Bold" size="23.0" />
                            </font>
@@ -109,9 +109,9 @@
                            </graphic>
                         </JFXButton>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="userPane" layoutX="89.0" layoutY="217.0">
+                  <AnchorPane fx:id="userPane" layoutX="89.0" layoutY="217.0" visible="false">
                      <children>
-                        <JFXButton fx:id="infoUser" contentDisplay="TOP" layoutX="265.0" text="Información del usuario" visible="false">
+                        <JFXButton fx:id="infoUser" contentDisplay="TOP" layoutX="265.0" onAction="#showUserInfo" text="Información del usuario" visible="false">
                            <font>
                               <Font name="Tahoma Bold" size="15.0" />
                            </font>
@@ -133,7 +133,7 @@
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="materialesPane" layoutX="74.0" layoutY="78.0">
+                  <AnchorPane fx:id="materialesPane" layoutX="74.0" layoutY="78.0" visible="false">
                      <children>
                         <GridPane layoutX="-11.0" layoutY="14.0" prefHeight="582.0" prefWidth="512.0">
                           <columnConstraints>
@@ -222,7 +222,7 @@
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="ventaPane" layoutX="13.0" layoutY="302.0">
+                  <AnchorPane fx:id="ventaPane" layoutX="13.0" layoutY="302.0" visible="false">
                      <children>
                         <JFXButton fx:id="compra" onAction="#cargarVenta" text="Realizar Compra" visible="false">
                            <graphic>
@@ -246,7 +246,7 @@
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="provedoresPane" layoutX="89.0" layoutY="192.0">
+                  <AnchorPane fx:id="provedoresPane" layoutX="89.0" layoutY="192.0" visible="false">
                      <children>
                         <JFXButton fx:id="regSuppiler" layoutX="4.0" layoutY="196.0" text="Registrar un Nuevo Proveerdor" visible="false">
                            <graphic>
@@ -266,6 +266,46 @@
                            <font>
                               <Font name="Tahoma Bold" size="21.0" />
                            </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="showUserInfoPane" layoutY="64.0" prefHeight="575.0" prefWidth="626.0">
+                     <children>
+                        <VBox layoutX="114.0" layoutY="38.0" prefHeight="436.0" prefWidth="420.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="150.0">
+                                 <image>
+                                    <Image url="@../../../imagenes/avatar.png" />
+                                 </image>
+                              </ImageView>
+                              <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                                 <children>
+                                    <Label text="Nombre:" />
+                                    <Label text="Nombre del usuario" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                                 <children>
+                                    <Label text="Apellido:" />
+                                    <Label />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                                 <children>
+                                    <Label text="Puesto:" />
+                                    <Label text="Nombre:" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton layoutX="452.0" layoutY="520.0" text="Regresar">
+                           <graphic>
+                              <ImageView fitHeight="62.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../imagenes/salir.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </JFXButton>
                      </children>
                   </AnchorPane>
