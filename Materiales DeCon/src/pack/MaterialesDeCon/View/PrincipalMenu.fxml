@@ -121,7 +121,7 @@
                         </ImageView>
                            </graphic>
                         </JFXButton>
-                        <JFXButton fx:id="regisUser" contentDisplay="TOP" text="Registrar nuevo usuario" visible="false">
+                        <JFXButton fx:id="regisUser" contentDisplay="TOP" onAction="#cargarRegistroUsuario" text="Registrar nuevo usuario" visible="false">
                            <font>
                               <Font name="Tahoma Bold" size="15.0" />
                            </font>
@@ -269,7 +269,7 @@
                         </JFXButton>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="showUserInfoPane" layoutY="64.0" prefHeight="575.0" prefWidth="626.0">
+                  <AnchorPane fx:id="showUserInfoPane" layoutY="64.0" prefHeight="575.0" prefWidth="626.0" visible="false">
                      <children>
                         <VBox layoutX="114.0" layoutY="38.0" prefHeight="436.0" prefWidth="420.0">
                            <children>
@@ -281,32 +281,56 @@
                               <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                  <children>
                                     <Label text="Nombre:" />
-                                    <Label text="Nombre del usuario" />
+                                    <Label fx:id="nombreUsuarioLabel" text="Nombre del usuario" />
                                  </children>
                               </HBox>
                               <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                  <children>
                                     <Label text="Apellido:" />
-                                    <Label />
+                                    <Label fx:id="apellidoUsuarioLabel" />
                                  </children>
                               </HBox>
                               <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                  <children>
                                     <Label text="Puesto:" />
-                                    <Label text="Nombre:" />
+                                    <Label fx:id="puestoLabel" text="Nombre:" />
                                  </children>
                               </HBox>
                            </children>
                         </VBox>
                         <JFXButton layoutX="452.0" layoutY="520.0" text="Regresar">
                            <graphic>
-                              <ImageView fitHeight="62.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="62.0" fitWidth="82.0" onDragDetected="#cagarMenuUsuario" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../imagenes/salir.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </JFXButton>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="addUserPane" prefHeight="635.0" prefWidth="626.0">
+                     <children>
+                        <Label layoutX="148.0" layoutY="101.0" text="Registro de usuario">
+                           <font>
+                              <Font name="Arial Black" size="37.0" />
+                           </font>
+                        </Label>
+                        <VBox layoutX="114.0" layoutY="182.0" prefHeight="338.0" prefWidth="420.0" spacing="30.0">
+                           <children>
+                              <JFXTextField fx:id="campoNombre" promptText="Nombre" />
+                              <JFXTextField fx:id="campoApellido" promptText="Apellido" />
+                              <JFXTextField fx:id="campoPuesto" promptText="Apellidos" text="Puesto" />
+                              <JFXPasswordField fx:id="campoPassword" promptText="Contraseña" />
+                              <JFXPasswordField fx:id="campoPassword2" promptText="Repetir contraseña" />
+                           </children>
+                        </VBox>
+                        <HBox layoutX="104.0" layoutY="508.0" prefHeight="86.0" prefWidth="432.0" spacing="100.0">
+                           <children>
+                              <JFXButton buttonType="RAISED" onAction="#registrarUsuario" prefHeight="55.0" prefWidth="121.0" ripplerFill="#77bf2b" style="-fx-background-color: #94d49e; -fx-border-radius: 200px;" text="Registrar" textOverrun="CLIP" />
+                              <JFXButton onAction="#cagarMenuUsuario" prefHeight="55.0" prefWidth="121.0" style="-fx-background-color: coral; -fx-border-radius: 200px 200px 200px 200px;" text="Cancelar" />
+                           </children>
+                        </HBox>
                      </children>
                   </AnchorPane>
                </children>

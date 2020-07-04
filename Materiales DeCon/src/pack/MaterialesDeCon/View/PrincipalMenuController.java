@@ -6,10 +6,14 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -58,8 +62,13 @@ public class PrincipalMenuController implements Initializable{
     private JFXButton regSuppiler;
     
     @FXML
-    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane;
+    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane, addUserPane;
    
+    @FXML
+    private JFXTextField campoNombre, campoApellido, campoPuesto;
+    
+    @FXML
+    private JFXPasswordField campoPassword, campoPassword2;
  
     //static float cantidadInicial= Float.parseFloat(JOptionPane.showInputDialog(null, "Inserte el ingreso del dia: "));
 	static float cantidadInicial = 0;
@@ -114,6 +123,7 @@ public class PrincipalMenuController implements Initializable{
 		materialesPane.setVisible(false);
 		userPane.setVisible(false);
 		showUserInfoPane.setVisible(false);
+		addUserPane.setVisible(false);
 		
 	}
 	
@@ -129,6 +139,32 @@ public class PrincipalMenuController implements Initializable{
 	public void showUserInfo() {
 		verificarBotones();
 		showUserInfoPane.setVisible(true);
+	}
+	
+	@FXML
+	public void cargarRegistroUsuario() {
+		verificarBotones();
+		addUserPane.setVisible(true);
+	}
+	
+	@FXML
+	public void registrarUsuario() {
+		String nombre = campoNombre.getText();
+		String apellido = campoApellido.getText();
+		String puesto = campoPuesto.getText();
+		
+		System.out.println(nombre);
+		System.out.println(apellido);
+		System.out.println(puesto);
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Exito");
+		alert.setHeaderText(null);
+		alert.setContentText("El usuario se ha registrado correctamente");
+		alert.showAndWait();
+		
+		verificarBotones();
+		userPane.setVisible(true);
 	}
 	
 	
