@@ -105,6 +105,11 @@ public class PrincipalMenuController implements Initializable{
 	}
 	
 	@FXML
+	void cargarListaProveedores() {
+		main.cargarListaProveedores();
+	}
+	
+	@FXML
 	void cargarVenta(ActionEvent event) {
 		Stage s = (Stage)compra.getScene().getWindow();
     	s.close();
@@ -158,7 +163,7 @@ public class PrincipalMenuController implements Initializable{
 		System.out.println(puesto);
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Exito");
+		alert.setTitle("Éxito");
 		alert.setHeaderText(null);
 		alert.setContentText("El usuario se ha registrado correctamente");
 		alert.showAndWait();

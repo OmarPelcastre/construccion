@@ -22,6 +22,7 @@ public class Main extends Application {
 	Stage registroProductos= new Stage();
 	Stage verCaja= new Stage();
 	Stage verlistaProductos= new Stage();
+	Stage verlistaProveedores= new Stage();
 	Stage verVenta= new Stage();
 	Stage verOrdenPedido=new Stage();
 	Stage verPago= new Stage();
@@ -100,6 +101,21 @@ public class Main extends Application {
 	}
 	}
 	
+	public void cargarListaProveedores() {
+		try {
+			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/ListaProveedores.fxml"));
+			AnchorPane root=(AnchorPane)loader.load();
+			Scene scene= new Scene(root);
+			ListaProductosController controlador= loader.getController();
+			controlador.setMain(this);
+			verlistaProveedores.setScene(scene);
+			verlistaProveedores.show();
+			
+			
+		} catch  (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	public void cargarVenta() {
 		try {
 			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/Venta.fxml"));
