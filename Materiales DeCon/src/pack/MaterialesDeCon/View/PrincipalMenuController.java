@@ -63,13 +63,13 @@ public class PrincipalMenuController implements Initializable{
     
     @FXML
     private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane,
-    addUserPane, addProveedorPane;
+    addUserPane, addProveedorPane, editProveedorPane;
    
     @FXML
     private JFXTextField campoNombre, campoApellido, campoPuesto;
     @FXML
     private JFXTextField campoEmpresa, campoNombreContacto, campoTelefonoContacto;
-    
+        
     @FXML
     private JFXPasswordField campoPassword, campoPassword2;
  
@@ -203,6 +203,10 @@ public class PrincipalMenuController implements Initializable{
 		verificarBotones();
 		addProveedorPane.setVisible(true);
 	}
+	
+	
+	
+	
 	
 	
 

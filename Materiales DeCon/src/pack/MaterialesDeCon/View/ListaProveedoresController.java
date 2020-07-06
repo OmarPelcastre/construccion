@@ -8,6 +8,7 @@ import java.sql.Statement;
 
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 
 import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -18,9 +19,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import pack.MaterialesDeCon.Main;
 import pack.MaterialesDeCon.Model.Conexion;
 import pack.MaterialesDeCon.Model.Producto;
@@ -31,6 +35,10 @@ public class ListaProveedoresController {
 	Connection conn=null;
     Conexion con = new Conexion();
     Producto productito;
+    
+    @FXML
+    private AnchorPane listaPane, editProveedorPane; 
+    
     @FXML
     private TableView<Producto> tablaProductos;
 
@@ -56,6 +64,7 @@ public class ListaProveedoresController {
     @FXML
     private JFXButton salir;
     
+    
     static String c;
     
  
@@ -67,7 +76,7 @@ public class ListaProveedoresController {
 		nombreProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNombreoProperty()));
 		categoriaProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getIdCategoriaProperty()));
 		price.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
-		
+		listaPane.setVisible(true);
 		
 		seleccion();
 		
@@ -114,7 +123,48 @@ public class ListaProveedoresController {
 		
 		
 	}
-	 public void setMain(Main main) {
+	public void setMain(Main main) {
 			this.main=main;
-		}
+	}
+	
+	private void ocultar() {
+		listaPane.setVisible(false);
+		editProveedorPane.setVisible(false);
+	}
+	
+	
+	///// edicion de proveedor
+	
+	@FXML
+    private JFXTextField editEmpresa, editNombreContacto, editTelefonoContacto;
+
+	
+	@FXML
+	public void guardarEdicionProveedor(){
+		String empresa = editEmpresa.getText();
+		String nombre = editNombreContacto.getText();
+		String telefono  = editTelefonoContacto.getText();
+		
+		System.out.println(empresa);
+		System.out.println(nombre);
+		System.out.println(telefono);
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Éxito");
+		alert.setHeaderText(null);
+		alert.setContentText("El proveedor se ha modificado correctamente");
+		alert.showAndWait();
+		
+		ocultar();
+	}
+	
+	@FXML
+	public void cancelar() {
+		editEmpresa.setText("");
+		editNombreContacto.setText("");
+		editTelefonoContacto.setText("");
+		ocultar();
+		listaPane.setVisible(true);
+	}
 }
+	
