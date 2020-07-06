@@ -132,6 +132,12 @@ public class ListaProveedoresController {
 		editProveedorPane.setVisible(false);
 	}
 	
+	@FXML
+	public void editProveedor() {
+		ocultar();
+		editProveedorPane.setVisible(true);
+	}
+	
 	
 	///// edicion de proveedor
 	

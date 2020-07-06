@@ -47,7 +47,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton fx:id="modificar" text="Modificar">
+                  <JFXButton fx:id="modificar" onAction="#editProveedor" text="Modificar">
                      <font>
                         <Font name="Tahoma Bold" size="20.0" />
                      </font>
