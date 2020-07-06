@@ -62,10 +62,13 @@ public class PrincipalMenuController implements Initializable{
     private JFXButton regSuppiler;
     
     @FXML
-    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane, addUserPane;
+    private AnchorPane userPane, provedoresPane, ventaPane, materialesPane, showUserInfoPane,
+    addUserPane, addProveedorPane;
    
     @FXML
     private JFXTextField campoNombre, campoApellido, campoPuesto;
+    @FXML
+    private JFXTextField campoEmpresa, campoNombreContacto, campoTelefonoContacto;
     
     @FXML
     private JFXPasswordField campoPassword, campoPassword2;
@@ -129,6 +132,7 @@ public class PrincipalMenuController implements Initializable{
 		userPane.setVisible(false);
 		showUserInfoPane.setVisible(false);
 		addUserPane.setVisible(false);
+		addProveedorPane.setVisible(false);
 		
 	}
 	
@@ -170,6 +174,34 @@ public class PrincipalMenuController implements Initializable{
 		
 		verificarBotones();
 		userPane.setVisible(true);
+	}
+	
+	@FXML
+	public void registrarProveedor() {
+		String empresa = campoEmpresa.getText();
+		String nombre = campoNombreContacto.getText();
+		String telefono  = campoNombreContacto.getText();
+		
+		System.out.println(empresa);
+		System.out.println(nombre);
+		System.out.println(telefono);
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Éxito");
+		alert.setHeaderText(null);
+		alert.setContentText("El proveedor se ha registrado correctamente");
+		alert.showAndWait();
+		
+		verificarBotones();
+		provedoresPane.setVisible(true);
+
+		
+	}
+	
+	@FXML
+	public void cargarRegistroProveedor() {
+		verificarBotones();
+		addProveedorPane.setVisible(true);
 	}
 	
 	
