@@ -23,36 +23,37 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import pack.MaterialesDeCon.Main;
 import pack.MaterialesDeCon.Model.Conexion;
 import pack.MaterialesDeCon.Model.Producto;
+import pack.MaterialesDeCon.Model.Usuario;
 
-public class ListaProveedoresController {
-	ObservableList<Producto> lista = FXCollections.observableArrayList();
+public class ListaUsuariosController {
+	ObservableList<Usuario> lista = FXCollections.observableArrayList();
 	Main main;
 	Connection conn=null;
     Conexion con = new Conexion();
     Producto productito;
+    Usuario usuario;
     
     @FXML
-    private AnchorPane listaPane, editProveedorPane; 
+    private AnchorPane listaPane, editUserPane; 
     
     @FXML
-    private TableView<Producto> tablaProductos;
+    private TableView<Usuario> tablaProductos;
 
     @FXML
-    private TableColumn<Producto, String> idCategoria;
+    private TableColumn<Usuario, String> tableId;
 
     @FXML
-    private TableColumn<Producto, String> nombreProducto;
+    private TableColumn<Usuario, String> tableNombre;
 
     @FXML
-    private TableColumn<Producto, String> categoriaProducto;
+    private TableColumn<Usuario, String> tableApellidos;
 
     @FXML
-    private TableColumn<Producto, Number> price;
+    private TableColumn<Usuario, String> tablePuesto;
 
   
     @FXML
@@ -70,15 +71,15 @@ public class ListaProveedoresController {
  
     @FXML
 	public void initialize() throws SQLException {
-		agregar();
-		select();
-		idCategoria.setCellValueFactory(cellData->cellData.getValue().getIdProducto());
-		nombreProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNombreoProperty()));
-		categoriaProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getIdCategoriaProperty()));
-		price.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
-		listaPane.setVisible(true);
-		
-		seleccion();
+//		agregar();
+//		select();
+//		tableId.setCellValueFactory(cellData->cellData.getValue().getIdProducto());
+//		tableNombre.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNombreoProperty()));
+//		tableApellidos.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getIdCategoriaProperty()));
+//		tablePuesto.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
+//		listaPane.setVisible(true);
+//		
+//		seleccion();
 		
 	}
     
@@ -88,13 +89,13 @@ public class ListaProveedoresController {
     }
 	
 	public void select() throws SQLException {
-		String consulta = "select * from MaterialesDeCon.dbo.Producto";
-		conn = con.getConexion();
-		Statement st = conn.createStatement();
-		ResultSet rs = st.executeQuery(consulta);
-		while(rs.next()) {
-			lista.add(new Producto(rs.getString(2), rs.getString(1), rs.getString(3), rs.getString(4), rs.getInt(6), rs.getFloat(5)));
-		}
+//		String consulta = "select * from MaterialesDeCon.dbo.Producto";
+//		conn = con.getConexion();
+//		Statement st = conn.createStatement();
+//		ResultSet rs = st.executeQuery(consulta);
+//		while(rs.next()) {
+//			lista.add(new Producto(rs.getString(2), rs.getString(1), rs.getString(3), rs.getString(4), rs.getInt(6), rs.getFloat(5)));
+//		}
 	}
 	public void agregar() {
 		tablaProductos.setItems(lista);
@@ -102,16 +103,16 @@ public class ListaProveedoresController {
 
 	
 	public void seleccion() throws SQLException{
-		tablaProductos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Producto>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Producto> observable, Producto oldValue, Producto newValue) {
-				// TODO Auto-generated method stub
-					c=newValue.getIdProductoProperty();
-				
-				
-			}
-		});
+//		tablaProductos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Producto>() {
+//
+//			@Override
+//			public void changed(ObservableValue<? extends Producto> observable, Producto oldValue, Producto newValue) {
+//				// TODO Auto-generated method stub
+//					c=newValue.getIdProductoProperty();
+//				
+//				
+//			}
+//		});
 	}
 	
 	
@@ -129,48 +130,47 @@ public class ListaProveedoresController {
 	
 	private void ocultar() {
 		listaPane.setVisible(false);
-		editProveedorPane.setVisible(false);
+		editUserPane.setVisible(false);
 	}
 	
 	@FXML
 	public void editProveedor() {
 		ocultar();
-		editProveedorPane.setVisible(true);
+		editUserPane.setVisible(true);
 	}
 	
 	
-	///// edicion de proveedor
+	///// edicion de Usuario
 	
 	@FXML
-    private JFXTextField editEmpresa, editNombreContacto, editTelefonoContacto;
+    private JFXTextField editNombre, editApellidos, editPuesto;
 
 	
 	@FXML
-	public void guardarEdicionProveedor(){
-		String empresa = editEmpresa.getText();
-		String nombre = editNombreContacto.getText();
-		String telefono  = editTelefonoContacto.getText();
+	public void guardarEdicionUsuario(){
+		String nombre = editNombre.getText();
+		String apellidos = editApellidos.getText();
+		String puesto  = editPuesto.getText();
 		
-		System.out.println(empresa);
 		System.out.println(nombre);
-		System.out.println(telefono);
+		System.out.println(apellidos);
+		System.out.println(puesto);
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Éxito");
 		alert.setHeaderText(null);
-		alert.setContentText("El proveedor se ha modificado correctamente");
+		alert.setContentText("El Usuario se ha modificado correctamente");
 		alert.showAndWait();
 		
 		ocultar();
 		listaPane.setVisible(true);
-
 	}
 	
 	@FXML
 	public void cancelar() {
-		editEmpresa.setText("");
-		editNombreContacto.setText("");
-		editTelefonoContacto.setText("");
+		editNombre.setText("");
+		editApellidos.setText("");
+		editPuesto.setText("");
 		ocultar();
 		listaPane.setVisible(true);
 	}

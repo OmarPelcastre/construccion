@@ -205,7 +205,10 @@ public class PrincipalMenuController implements Initializable{
 	}
 	
 	
-	
+	@FXML
+	public void showUsers() {
+		main.cargarListaUsuarios();
+	}
 	
 	
 	

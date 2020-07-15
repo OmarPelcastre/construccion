@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pack.MaterialesDeCon.View.CorteCajaController;
 import pack.MaterialesDeCon.View.ListaProductosController;
+import pack.MaterialesDeCon.View.ListaUsuariosController;
 import pack.MaterialesDeCon.View.LoginController;
 import pack.MaterialesDeCon.View.OrdenPedidoController;
 import pack.MaterialesDeCon.View.PagoController;
@@ -26,6 +27,7 @@ public class Main extends Application {
 	Stage verVenta= new Stage();
 	Stage verOrdenPedido=new Stage();
 	Stage verPago= new Stage();
+	Stage listaUsuarios = new Stage();
 
 
 	@Override
@@ -174,6 +176,22 @@ public class Main extends Application {
 		} catch  (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void cargarListaUsuarios() {
+		try {
+			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/ListaUsuarios.fxml"));
+			AnchorPane root=(AnchorPane)loader.load();
+			Scene scene= new Scene(root);
+			ListaUsuariosController controlador= loader.getController();
+			controlador.setMain(this);
+			listaUsuarios.setScene(scene);
+			listaUsuarios.show();
+			
+		} catch  (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 

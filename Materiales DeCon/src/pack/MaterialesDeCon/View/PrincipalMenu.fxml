@@ -109,28 +109,40 @@
                            </graphic>
                         </JFXButton>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="userPane" layoutX="89.0" layoutY="217.0" visible="false">
+                  <AnchorPane fx:id="userPane" layoutX="89.0" layoutY="217.0">
                      <children>
-                        <JFXButton fx:id="infoUser" contentDisplay="TOP" layoutX="265.0" onAction="#showUserInfo" text="Información del usuario" visible="false">
-                           <font>
-                              <Font name="Tahoma Bold" size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView>
-                           
-                        </ImageView>
-                           </graphic>
-                        </JFXButton>
-                        <JFXButton fx:id="regisUser" contentDisplay="TOP" onAction="#cargarRegistroUsuario" text="Registrar nuevo usuario" visible="false">
-                           <font>
-                              <Font name="Tahoma Bold" size="15.0" />
-                           </font>
-                           <graphic>
-                              <ImageView>
+                        <VBox layoutX="75.0" prefHeight="209.0" prefWidth="339.0" spacing="30.0">
+                           <children>
+                              <JFXButton fx:id="regisUser" contentDisplay="TOP" onAction="#cargarRegistroUsuario" text="Registrar nuevo usuario">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView>
 
                         </ImageView>
-                           </graphic>
-                        </JFXButton>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="infoUser" contentDisplay="TOP" onAction="#showUserInfo" text="Información del usuario">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView>
+                           
+                        </ImageView>
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton contentDisplay="TOP" onAction="#showUsers" text="Lista de usuarios">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="15.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </VBox>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="materialesPane" layoutX="74.0" layoutY="78.0" visible="false">
@@ -333,7 +345,7 @@
                         </HBox>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="addProveedorPane" layoutX="10.0" layoutY="10.0" prefHeight="635.0" prefWidth="626.0">
+                  <AnchorPane fx:id="addProveedorPane" layoutX="10.0" layoutY="10.0" prefHeight="635.0" prefWidth="626.0" visible="false">
                      <children>
                         <Label layoutX="62.0" layoutY="77.0" text="Registro de Proveedor">
                            <font>
