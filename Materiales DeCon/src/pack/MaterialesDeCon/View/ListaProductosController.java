@@ -110,6 +110,11 @@ public class ListaProductosController {
 		});
 	}
 	
+	@FXML
+	public void agregarProducto() {
+		main.cagarRegistroProducto();
+	}
+	
 	
 	public void eliminar() throws SQLException{
 		String consulta = "delete from MaterialesDeCon.dbo.Producto where idProducto ='"+c+"'";
