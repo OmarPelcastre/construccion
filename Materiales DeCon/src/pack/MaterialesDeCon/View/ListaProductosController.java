@@ -78,7 +78,8 @@ public class ListaProductosController {
 		price.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
 		existencia.setCellValueFactory(c-> new SimpleIntegerProperty(c.getValue().getExistenciaProperty()));
 		proveedor.setCellValueFactory(new PropertyValueFactory<Producto, String>("idProvedor"));
-		
+		editPane.setVisible(false);
+
 		seleccion();
 		
 	}

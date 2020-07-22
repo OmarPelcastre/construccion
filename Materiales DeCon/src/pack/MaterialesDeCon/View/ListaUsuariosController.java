@@ -80,6 +80,8 @@ public class ListaUsuariosController {
 //		listaPane.setVisible(true);
 //		
 //		seleccion();
+		 editUserPane.setVisible(false);
+
 		
 	}
     
@@ -134,7 +136,7 @@ public class ListaUsuariosController {
 	}
 	
 	@FXML
-	public void editProveedor() {
+	public void editUser() {
 		ocultar();
 		editUserPane.setVisible(true);
 	}
