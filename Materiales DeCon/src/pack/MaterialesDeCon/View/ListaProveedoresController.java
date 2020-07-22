@@ -43,16 +43,16 @@ public class ListaProveedoresController {
     private TableView<Producto> tablaProductos;
 
     @FXML
-    private TableColumn<Producto, String> idCategoria;
+    private TableColumn<Producto, String> tablaId;
 
     @FXML
-    private TableColumn<Producto, String> nombreProducto;
+    private TableColumn<Producto, String> tablaContacto, tablaEmpresa;
 
     @FXML
-    private TableColumn<Producto, String> categoriaProducto;
+    private TableColumn<Producto, String> tablaTelefono;
 
     @FXML
-    private TableColumn<Producto, Number> price;
+    private TableColumn<Producto, String> tablaDireccion, tablaCiudad, tablaCodigo;
 
   
     @FXML
@@ -70,15 +70,17 @@ public class ListaProveedoresController {
  
     @FXML
 	public void initialize() throws SQLException {
-		agregar();
-		select();
-		idCategoria.setCellValueFactory(cellData->cellData.getValue().getIdProducto());
-		nombreProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNombreoProperty()));
-		categoriaProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getIdCategoriaProperty()));
-		price.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
+//		agregar();
+//		select();
+//		idCategoria.setCellValueFactory(cellData->cellData.getValue().getIdProducto());
+//		nombreProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getNombreoProperty()));
+//		categoriaProducto.setCellValueFactory(c-> new SimpleStringProperty(c.getValue().getIdCategoriaProperty()));
+//		price.setCellValueFactory(c-> new SimpleFloatProperty(c.getValue().getPrecioUnitarioProperty()));
+//		
+//		
+//		seleccion();
+		ocultar();
 		listaPane.setVisible(true);
-		
-		seleccion();
 		
 	}
     
@@ -142,18 +144,16 @@ public class ListaProveedoresController {
 	///// edicion de proveedor
 	
 	@FXML
-    private JFXTextField editEmpresa, editNombreContacto, editTelefonoContacto;
+    private JFXTextField editEmpresa, editContacto, editTelefono, editDireccion, editCiudad, editCodigo;
 
 	
 	@FXML
 	public void guardarEdicionProveedor(){
 		String empresa = editEmpresa.getText();
-		String nombre = editNombreContacto.getText();
-		String telefono  = editTelefonoContacto.getText();
+		
 		
 		System.out.println(empresa);
-		System.out.println(nombre);
-		System.out.println(telefono);
+		
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Éxito");
@@ -169,8 +169,7 @@ public class ListaProveedoresController {
 	@FXML
 	public void cancelar() {
 		editEmpresa.setText("");
-		editNombreContacto.setText("");
-		editTelefonoContacto.setText("");
+		
 		ocultar();
 		listaPane.setVisible(true);
 	}

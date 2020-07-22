@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pack.MaterialesDeCon.View.CorteCajaController;
 import pack.MaterialesDeCon.View.ListaProductosController;
+import pack.MaterialesDeCon.View.ListaProveedoresController;
 import pack.MaterialesDeCon.View.ListaUsuariosController;
 import pack.MaterialesDeCon.View.LoginController;
 import pack.MaterialesDeCon.View.OrdenPedidoController;
@@ -108,7 +109,7 @@ public class Main extends Application {
 			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/ListaProveedores.fxml"));
 			AnchorPane root=(AnchorPane)loader.load();
 			Scene scene= new Scene(root);
-			ListaProductosController controlador= loader.getController();
+			ListaProveedoresController controlador= loader.getController();
 			controlador.setMain(this);
 			verlistaProveedores.setScene(scene);
 			verlistaProveedores.show();
