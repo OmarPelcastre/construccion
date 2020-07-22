@@ -25,15 +25,15 @@
    <children>
       <AnchorPane fx:id="listaPane" prefHeight="700.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TableView fx:id="tablaProductos" layoutX="3.0" layoutY="115.0" prefHeight="494.0" prefWidth="1000.0" style="-fx-border-color: #F4FF00;">
+            <TableView fx:id="tablaProductos" layoutX="3.0" layoutY="112.0" prefHeight="497.0" prefWidth="982.0" style="-fx-border-color: #F4FF00;">
               <columns>
                 <TableColumn fx:id="tablaId" prefWidth="68.19691276550293" style="-fx-background-color: lightblue;" text="ID" />
                   <TableColumn fx:id="tablaContacto" maxWidth="139.80308532714844" prefWidth="139.80308532714844" style="-fx-background-color: lightblue;" text="Contacto" />
                 <TableColumn fx:id="tablaEmpresa" prefWidth="185.57562255859375" style="-fx-background-color: lightblue;" text="Empresa" />
                   <TableColumn fx:id="tablaTelefono" maxWidth="243.21923828125" prefWidth="110.20169067382812" style="-fx-background-color: lightblue;" text="Teléfono Contacto" />
                   <TableColumn fx:id="tablaDireccion" prefWidth="182.79837036132812" style="-fx-background-color: lightblue;" text="Dirección" />
-                  <TableColumn fx:id="tablaCiudad" prefWidth="156.5943603515625" style="-fx-background-color: lightblue;" text="Ciudad" />
-                  <TableColumn fx:id="tablaCodigo" prefWidth="196.4056396484375" style="-fx-background-color: lightblue;" text="Cod. Postal" />
+                  <TableColumn fx:id="tablaCiudad" prefWidth="144.8043212890625" style="-fx-background-color: lightblue;" text="Ciudad" />
+                  <TableColumn fx:id="tablaCodigo" prefWidth="210.1956787109375" style="-fx-background-color: lightblue;" text="Cod. Postal" />
               </columns>
             </TableView>
             <HBox layoutX="225.0" layoutY="604.0" prefHeight="83.0" prefWidth="611.0" spacing="20.0">

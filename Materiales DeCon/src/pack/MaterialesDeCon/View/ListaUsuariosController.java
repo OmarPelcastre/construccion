@@ -81,8 +81,7 @@ public class ListaUsuariosController {
 //		
 //		seleccion();
     	ocultar();
-		editUserPane.setVisible(false);
-
+    	listaPane.setVisible(true);
 		
 	}
     
