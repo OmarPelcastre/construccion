@@ -124,6 +124,10 @@ public class PrincipalMenuController implements Initializable{
 		main.cagarCorteCaja();
 	}
 	
+	@FXML
+	void cargarTickets() {
+		main.cargarListaTickets();
+	}
 	
 	public void verificarBotones() {
 		provedoresPane.setVisible(false);

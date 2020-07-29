@@ -269,6 +269,18 @@
                                     <Font name="Tahoma Bold" size="21.0" />
                                  </font>
                               </JFXButton>
+                              <JFXButton fx:id="caja1" onAction="#cargarTickets" text="Tickets">
+                                 <font>
+                                    <Font name="Tahoma Bold" size="21.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView>
+                                       <image>
+                                          <Image url="@../../../imagenes/ticket.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </JFXButton>
                            </children>
                         </VBox>
                      </children>

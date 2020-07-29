@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import pack.MaterialesDeCon.View.CorteCajaController;
 import pack.MaterialesDeCon.View.ListaProductosController;
 import pack.MaterialesDeCon.View.ListaProveedoresController;
+import pack.MaterialesDeCon.View.ListaTicketsController;
 import pack.MaterialesDeCon.View.ListaUsuariosController;
 import pack.MaterialesDeCon.View.LoginController;
 import pack.MaterialesDeCon.View.OrdenPedidoController;
@@ -23,6 +24,7 @@ public class Main extends Application {
 	Stage login= new Stage();
 	Stage registroProductos= new Stage();
 	Stage verCaja= new Stage();
+	Stage tickets= new Stage();
 	Stage verlistaProductos= new Stage();
 	Stage verlistaProveedores= new Stage();
 	Stage verVenta= new Stage();
@@ -173,6 +175,21 @@ public class Main extends Application {
 			controlador.setMain(this);
 			verCaja.setScene(scene);
 			verCaja.show();
+			
+		} catch  (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void cargarListaTickets() {
+		try {
+			FXMLLoader loader= new FXMLLoader(Main.class.getResource("View/ListaTickets.fxml"));
+			AnchorPane root=(AnchorPane)loader.load();
+			Scene scene= new Scene(root);
+			ListaTicketsController controlador= loader.getController();
+			controlador.setMain(this);
+			tickets.setScene(scene);
+			tickets.show();
 			
 		} catch  (IOException e) {
 			e.printStackTrace();
